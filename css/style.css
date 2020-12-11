@@ -1,0 +1,174 @@
+body {
+    background: rgb(167, 163, 146);
+    color: rgb(20, 20, 20);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Syne Mono', monospace;
+}
+
+.top-cont {
+    height: 55%;
+    margin: 10px 0;
+    border-radius : .25rem;
+    background: rgb(36, 36, 36);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.list-btn-evi {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.btn-evi {
+    font-family: 'East Sea Dokdo', cursive;
+    margin: 10px;
+    padding: 8px;
+    width: 77px;
+    height: 77px;
+    font-size: 1.2em;
+    background: rgb(54, 54, 54);
+    color: rgb(167, 163, 146);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: .25rem;
+    overflow: hidden;
+    transition: all .15s ease-in-out;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+}
+
+.btn-evi-on { background: rgb(92, 26, 31); color: rgb(216, 203, 203); }
+.btn-evi-pot { box-shadow: 0px 0px 8px 5px rgb(126, 36, 43); }
+.btn-evi-pot-true { box-shadow: 0px 0px 8px 5px rgb(16, 78, 40); }
+.btn-evi-true { background: rgb(16, 78, 40); color: rgb(216, 203, 203); }
+.btn-evi-false { background: rgb(24, 24, 24); color: rgb(216, 203, 203); }
+
+.btn-reset, .btn-vide {
+    background: rgb(20, 20, 20);
+    color: rgb(167, 163, 146);
+    font-size: .7em;
+    cursor: pointer;
+    border-radius: .25rem;
+    width: 77px;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.btn-vide {
+    background: transparent;
+    text-indent: -500px;
+    cursor: initial;
+}
+
+.list-btn-ghost {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+.btn-ghost, .btn-pas-ghost {
+    overflow: hidden;
+    margin: 5px;
+    padding: 8px;
+    font-size: .7em;
+    background: rgb(145, 142, 118);
+    cursor: pointer;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
+    display: none;
+}
+.btn-ghost-on, .btn-pas-ghost { background: rgb(36, 36, 36); color: rgb(167, 163, 146); }
+.btn-ghost-true { background: rgb(16, 78, 40); color: rgb(167, 163, 146); }
+
+.btn-ghost-show {
+    display: initial;
+}
+
+.desc-ghost-cont {
+    font-family: 'Reenie Beanie', cursive;
+    position: absolute;
+    background: rgb(214, 214, 214);
+    height: 2px;
+    border-radius: .5rem;
+    transition: all .2s ease;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.3);
+    bottom: -10px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.desc-ghost-cont-show {
+    height: 250px;
+}
+
+.desc-title {
+    font-weight: bold;
+    font-size: 1.4em;
+    margin: 10px 0;
+    border-bottom: 1px solid rgb(36, 36, 36);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: .7em;
+    text-align: right;
+    padding: 10px;
+    color: rgb(133, 130, 110);
+}
+
+footer div:first-child {
+    display: none;
+    font-size: 1.4em;
+}
+
+
+/******* MEDIA QUERIES *******/
+@media (min-width: 576px) {
+    footer div:first-child {
+        display: inherit;
+    }
+    .btn-evi {
+        width: 90px;
+        height: 90px;
+        font-size: 1.2em;
+        margin: 10px;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 768px) { 
+    .btn-evi {
+        width: 90px;
+        height: 90px;
+        font-size: 1.2em;
+        margin: 10px;
+        padding: 8px;
+    }
+    .btn-ghost, .btn-pas-ghost {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 992px) { 
+    .btn-evi {
+        width: 100px;
+        height: 100px;
+        font-size: 1.3em;
+        margin: 12px;
+        padding: 8px;
+    }
+}
