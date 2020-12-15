@@ -6,6 +6,7 @@
 
     <!-- CSS -->
     <link href="css/reset.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
 
@@ -24,19 +25,19 @@
 
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid mainContent" final="0">
         <div class="row top-cont">
             <div class="btn-vide">Reset</div>
             <div>
                 <div class="col-12 list-btn-evi">
-                    <div class="btn-evi">EMF5</div>
-                    <div class="btn-evi">Empreinte</div>
-                    <div class="btn-evi">T°Glaciale</div>
+                    <div class="btn-evi" state="0" pot="0">EMF5</div>
+                    <div class="btn-evi" state="0" pot="0">Empreinte</div>
+                    <div class="btn-evi" state="0" pot="0">T°Glaciale</div>
                 </div>
                 <div class="col-12 list-btn-evi">
-                    <div class="btn-evi">Orbe</div>
-                    <div class="btn-evi">Ecriture</div>
-                    <div class="btn-evi">SpiritBox</div>
+                    <div class="btn-evi" state="0" pot="0">Orbe</div>
+                    <div class="btn-evi" state="0" pot="0">Ecriture</div>
+                    <div class="btn-evi" state="0" pot="0">SpiritBox</div>
                 </div>
             </div>
             <div class="btn-reset">Reset</div>
@@ -44,19 +45,19 @@
         <div class="row">
             <div></div>
             <div class="list-btn-ghost">
-                <div class='btn-pas-ghost'>Aucun fantôme correspondant</div>
-                <div class='btn-ghost'>Banshee</div>
-                <div class='btn-ghost'>Demon</div>
-                <div class='btn-ghost'>Jinn</div>
-                <div class='btn-ghost'>Cauchemar</div>
-                <div class='btn-ghost'>Oni</div>
-                <div class='btn-ghost'>Fantôme</div>
-                <div class='btn-ghost'>Poltergeist</div>
-                <div class='btn-ghost'>Revenant</div>
-                <div class='btn-ghost'>Ombre</div>
-                <div class='btn-ghost'>Esprit</div>
-                <div class='btn-ghost'>Spectre</div>
-                <div class='btn-ghost'>Yurei</div>
+                <div class='btn-pas-ghost' hide>Aucun fantôme correspondant</div>
+                <div class='btn-ghost' state="0">Banshee</div>
+                <div class='btn-ghost' state="0">Demon</div>
+                <div class='btn-ghost' state="0">Jinn</div>
+                <div class='btn-ghost' state="0">Cauchemar</div>
+                <div class='btn-ghost' state="0">Oni</div>
+                <div class='btn-ghost' state="0">Fantôme</div>
+                <div class='btn-ghost' state="0">Poltergeist</div>
+                <div class='btn-ghost' state="0">Revenant</div>
+                <div class='btn-ghost' state="0">Ombre</div>
+                <div class='btn-ghost' state="0">Esprit</div>
+                <div class='btn-ghost' state="0">Spectre</div>
+                <div class='btn-ghost' state="0">Yurei</div>
             </div>
         </div>
         
@@ -77,6 +78,7 @@
 
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
    
     <script src="js/classEvidence.js"></script>

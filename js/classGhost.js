@@ -1,19 +1,16 @@
 var name;
-var id;
 var listEvi;
-var potential;
 var eviA, eviB, eviC;
 var strength;
 var weak;
 
-function Ghost(name, id, eviA, eviB, eviC, strength, weak) {
+function Ghost(name, eviA, eviB, eviC, strength, weak) {
     this.name = name;
-    this.id = id;
 
     this.listEvi = [false, false, false, false, false, false];
-    this.listEvi[eviA.id-1] = true;
-    this.listEvi[eviB.id-1] = true;
-    this.listEvi[eviC.id-1] = true;
+    this.listEvi[eviA] = true;
+    this.listEvi[eviB] = true;
+    this.listEvi[eviC] = true;
 
     this.eviA = eviA;
     this.eviB = eviB;

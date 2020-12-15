@@ -1,161 +1,172 @@
 // Variables
-var evi1, evi2, evi3, evi4, evi5, evi6;
-var currentSel;
-var nbEviMin = 0;
-var nbEviMax = 3;
-var nbEvi = [];
-var listGhost;
-var listDivEvi;
+var countEvi;
+var listEvi = [];
+var listGhost = [];
+var boolList = [];
 
-$(document).ready(function() {
-    initPhasmoo();
-});
+$(document).ready(function() {  initPhasmoo(); });
 
 /************ INITIALISATION *************
 ******************************************/
 function initPhasmoo() {
-    // INIT Liste des preuves
-    evi1 = new Evidence("EMF5", 1);
-    evi2 = new Evidence("Empreinte digitale", 2);
-    evi3 = new Evidence("Température glaciale", 3);
-    evi4 = new Evidence("Orbe fantômatique", 4);
-    evi5 = new Evidence("Ecriture fantômatique", 5);
-    evi6 = new Evidence("Spirit Box", 6);
+    // INIT Evidence List
+    listEvi[0] = new Evidence("EMF5");
+    listEvi[1] = new Evidence("Empreinte digitale");
+    listEvi[2] = new Evidence("Température glaciale");
+    listEvi[3] = new Evidence("Orbe fantômatique");
+    listEvi[4] = new Evidence("Ecriture fantômatique");
+    listEvi[5] = new Evidence("Spirit Box");
 
-    // INIT Liste des fantomes
-    ghost1 = new Ghost("Banshee", 1, evi1, evi2, evi3, "Chasse toujours la même personne, jusqu'à sa mort.", "Les crucifix sont plus efficaces contre elle (5m).");
-    ghost2 = new Ghost("Demon", 2, evi3, evi5, evi6, "Plus aggressif que n'importe quelle autre entité.", "La planche Ouija ne draine pas la santé mentale.");
-    ghost3 = new Ghost("Jinn", 3, evi1, evi4, evi6, "Plus la cible est loin, plus il est rapide.", "Eteindre les lumières lui enlèvera cette capacité.");
-    ghost4 = new Ghost("Cauchemar", 4, evi3, evi4, evi6, "Attaquera plus fréquement dans le noir.", "Allumer les lumières réduira ses chances d'attaquer.");
-    ghost5 = new Ghost("Oni", 5, evi1, evi5, evi6, "Est plus actif en présence d'un groupe de personne.", "...donc plus facilement identifiable.");
-    ghost6 = new Ghost("Fantôme", 6, evi1, evi3, evi4, "Le regarder fait grandement baisser la santé mentale.", "Disparait brièvement s'il est pris en photo pendant une chasse.");
-    ghost7 = new Ghost("Poltergeist", 7, evi2, evi4, evi6, "Bouge activement les objets autour de lui.", "Plus vulnérable sans objet dans la pièce.");
-    ghost8 = new Ghost("Revenant", 8, evi1, evi2, evi5, "Très rapide en chasse.", "Se cacher le ralentira considérablement.");
-    ghost9 = new Ghost("Ombre", 9, evi1, evi4, evi5, "Réduit son activité en présence d'un groupe de personne.", "...donc moins enclin à attaquer face à un groupe.");
-    ghost10 = new Ghost("Esprit", 10, evi2, evi5, evi6, "Aucune.", "L'utilisation de bâton d'encens préviendra toute attaque pendant un certain temps.");
-    ghost11 = new Ghost("Spectre", 11, evi2, evi3, evi6, "Flotte, ne laisse pas d'empreinte au sol et traverse les murs.", "Réaction toxique au sel.");
-    ghost12 = new Ghost("Yurei", 12, evi3, evi4, evi5, "Réduit plus rapidement la santé mentale.", "L'utilisation de bâton d'encens la contraindra à rester aux alentours.");
-    listGhost = [ghost1, ghost2, ghost3, ghost4, ghost5, ghost6, ghost7, ghost8, ghost9, ghost10, ghost11, ghost12];
+    // INIT Ghost List
+    listGhost[0] = new Ghost("Banshee", 0, 1, 2, "Chasse toujours la même personne, jusqu'à sa mort.", "Les crucifix sont plus efficaces contre elle (5m).");
+    listGhost[1] = new Ghost("Demon", 2, 4, 5, "Plus aggressif que n'importe quelle autre entité.", "La planche Ouija ne draine pas la santé mentale.");
+    listGhost[2] = new Ghost("Jinn", 0, 3, 5, "Plus la cible est loin, plus il est rapide.", "Eteindre les lumières lui enlèvera cette capacité.");
+    listGhost[3] = new Ghost("Cauchemar", 2, 3, 5, "Attaquera plus fréquement dans le noir.", "Allumer les lumières réduira ses chances d'attaquer.");
+    listGhost[4] = new Ghost("Oni", 0, 4, 5, "Est plus actif en présence d'un groupe de personne.", "...donc plus facilement identifiable.");
+    listGhost[5] = new Ghost("Fantôme", 0, 2, 3, "Le regarder fait grandement baisser la santé mentale.", "Disparait brièvement s'il est pris en photo pendant une chasse.");
+    listGhost[6] = new Ghost("Poltergeist", 1, 3, 5, "Bouge activement les objets autour de lui.", "Plus vulnérable sans objet dans la pièce.");
+    listGhost[7] = new Ghost("Revenant", 0, 1, 4, "Très rapide en chasse.", "Se cacher le ralentira considérablement.");
+    listGhost[8] = new Ghost("Ombre", 0, 3, 4, "Réduit son activité en présence d'un groupe de personne.", "...donc moins enclin à attaquer face à un groupe.");
+    listGhost[9] = new Ghost("Esprit", 1, 4, 5, "Aucune.", "L'utilisation de bâton d'encens préviendra toute attaque pendant un certain temps.");
+    listGhost[10] = new Ghost("Spectre", 1, 2, 5, "Flotte, ne laisse pas d'empreinte au sol et traverse les murs.", "Réaction toxique au sel.");
+    listGhost[11] = new Ghost("Yurei", 2, 3, 4, "Réduit plus rapidement la santé mentale.", "L'utilisation de bâton d'encens la contraindra à rester aux alentours.");
 
-    afficheListGhost();
+    // INIT Boolean List to true => List of all potential Ghosts
+    resetList();
+
+    // Run the main function
+    updateList();
 }
 
-/********** BOUTONS ************
- * ****************************/
-// Bouton Preuves
+/********** BUTTONS BEHAVIORS ************
+******************************************/
+// Button Evidence
 $(".btn-evi").click(function() {
-    currentSel = window["evi"+parseInt($(".btn-evi").index(this)+1)];
-    
-    // Test pour la selection (pas plus de 3 et pas moins de 0)
-    if (!currentSel.toggle) {
-        nbEviAdd(this);
-    } else {
-        nbEviSub(this);
+    switch ($(this).attr("state")) {
+        case '0': $(this).attr("state", "1"); break;
+        case '1': $(this).attr("state", "2"); break;
+        case '2': $(this).attr("state", "0"); break;
     }
+    updateList();
 });
 
-// Bouton Reset
+// Button Reset
 $(".btn-reset").click(function() {
-    nbEvi = [];
-    for (i=1; i<=6; i++) window["evi"+i].toggle = false;
-    $(".btn-evi").removeClass("btn-evi-on");
-    enleveDescription();
-    afficheListGhost();
+    $(".btn-evi").attr("state", "0");
+    resetList();
+    updateList();
 });
 
-// Ajout ou retrait de preuves
-function nbEviAdd(div) {
-    if (nbEvi.length < nbEviMax) {
-        currentSel.toggle = true;
-        nbEvi.push(currentSel);
-        $(div).addClass("btn-evi-on");
-
-        afficheListGhost();
+function resetList() {
+    for (i=0; i<listGhost.length; i++) {
+        boolList[i] = true;
     }
-}
-function nbEviSub(div) {
-    if (nbEvi.length >= 0) {
-        currentSel.toggle = false;
-        nbEvi.splice($.inArray(currentSel, nbEvi), 1);
-        $(div).removeClass("btn-evi-on");
-
-        afficheListGhost();
-    }
+    countEvi = 0;
+    $(".btn-pas-ghost").attr("hide", true);
+    $(".btn-evi").removeAttr("pot");
+    $(".mainContent").attr("final", "0");
 }
 
 // Bouton Fantomes
 $(".btn-ghost").click(function() {
-    if (!$(this).hasClass("btn-ghost-on")) {
-        $(this).siblings().removeClass("btn-ghost-on");
-        $(this).addClass("btn-ghost-on");
-        refreshDescription(listGhost[$(".btn-ghost").index(this)]);
-        afficheDescription();
-    } else {
-        $(this).removeClass("btn-ghost-on");
-        enleveDescription();
+    if ($(this).attr("state") == "0") {
+        $(this).siblings().attr("state", "0");
+        $(this).attr("state", "1");
     }
+    else {
+        $(this).attr("state", "0");
+    }
+    
+    // Show or Hide description div
+    if (!$(".desc-ghost-cont").hasClass("desc-ghost-cont-show")) { showDesc(); }
+    else {  hideDesc(); }
+    
+    updateDesc(this);
 });
 
-// Bouton Descriptions
-$(".desc-ghost-cont").click(function() {
-    enleveDescription();
-});
+// Description functions
+$(".desc-ghost-cont").click(function() { hideDesc(); });
 
-function afficheDescription() { $(".desc-ghost-cont").addClass("desc-ghost-cont-show"); }
-function enleveDescription() { $(".desc-ghost-cont").removeClass("desc-ghost-cont-show"); $(".btn-ghost").removeClass("btn-ghost-on"); }
-
-function refreshDescription(ghost) {
+function updateDesc(div) {
+    var ghost = listGhost[$(".btn-ghost").index(div)];
+    // Update ghost info
     $(".desc-title").html(ghost.name);
     $(".desc-strength").html(ghost.strength);
     $(".desc-weak").html(ghost.weak);
-    $(".desc-evi").html(ghost.eviA.name + ", " + ghost.eviB.name + " et " + ghost.eviC.name + ".");
+    $(".desc-evi").html(listEvi[ghost.eviA].name + ", " + listEvi[ghost.eviB].name + ", " + listEvi[ghost.eviC].name + ".");
 }
 
-/*********** FONCTION PRINCIPAL DE CALCUL *********
- **************************************************/
-function afficheListGhost() {
-    // Reset la liste des fantomes potentiels et leur affichage
-    $(".btn-evi").removeClass("btn-evi-pot").removeClass("btn-evi-false").removeClass("btn-evi-true").removeClass("btn-evi-pot-true");
-    $(".btn-ghost").removeClass("btn-ghost-true");
-    $(".list-btn-ghost").children().removeClass("btn-ghost-show");
-    $(".btn-ghost").each(function (index) {
-        listGhost[index].potential = true;
-    });
-    
-    // Teste toute la liste des fantomes pour trouver ceux n'ayant PAS la ou les preuves en question, et les enlève de la liste des potentiels
-    if (nbEvi != 0) {
-        for (i=0; i<nbEvi.length; i++) {
-            for (j=0; j<listGhost.length; j++) {
-                if (listGhost[j].potential) {
-                    if (!listGhost[j].listEvi[nbEvi[i].id-1]) {
-                        listGhost[j].potential = false;
+function showDesc() {
+    $(".desc-ghost-cont").addClass("desc-ghost-cont-show");
+}
+function hideDesc() {
+    $(".desc-ghost-cont").removeClass("desc-ghost-cont-show");
+    $(".btn-ghost").attr("state", "0");
+}
+
+/******************* FUNCTIONS **********************
+*****************************************************/
+function updateList() {
+    // Reset the list
+    resetList();
+
+    // Refresh the ghost list : check the state of all Evidence buttons
+    $(".btn-evi").each(function (index) {
+        switch ($(this).attr("state")) {
+            // Case potential : Remove ghost-s (i) that don't have the evidence (index), and increment the nb of selected Evi button (countEvi)
+            case '1':
+                for (i=0; i<listGhost.length; i++) {
+                    if (!listGhost[i].listEvi[index]) {
+                        boolList[i] = false;
                     }
                 }
-            }
-        }
-    }
-    
-    // Affiche la liste de tous les fantômes potentiels, après le test
-    $(".btn-ghost").each(function (index) {
-        if (listGhost[index].potential) {
-            $(this).addClass("btn-ghost-show");
-            if (nbEvi.length == 2) {
-                $(".btn-evi").eq(listGhost[index].eviA.id-1).addClass("btn-evi-pot");
-                $(".btn-evi").eq(listGhost[index].eviB.id-1).addClass("btn-evi-pot");
-                $(".btn-evi").eq(listGhost[index].eviC.id-1).addClass("btn-evi-pot");
-            }
+                countEvi++;
+                break;
+            // Case excluded : Remove ghost-s (i) that do have the evidence (index)
+            case '2':
+                for (i=0; i<listGhost.length; i++) {
+                    if (listGhost[i].listEvi[index]) {
+                        boolList[i] = false;
+                    }
+                }
+                break;
+            // Case default : Do nothing
+            case '0':
+                break;
         }
     });
-    $("div.btn-evi-on.btn-evi-pot").removeClass("btn-evi-pot");
 
-    // Cas ou la liste est vide, ou avec 1 seul élément
-    if ($(".btn-ghost-show").length == 0) {
-        $(".btn-pas-ghost").addClass("btn-ghost-show");
-        $(".btn-evi-on").addClass("btn-evi-false");
-    } else if ($(".btn-ghost-show").length == 1) {
-        $(".btn-evi-on").addClass("btn-evi-true");
-        $(".btn-ghost-show").addClass("btn-ghost-true");
-        $(".btn-evi-pot").addClass("btn-evi-pot-true");
+    // Show or hide ghosts given their state
+    for (i=0; i<boolList.length; i++) {
+        if (!boolList[i]) {
+            $(".btn-ghost").eq(i).attr("hide", true);
+        } else {
+            $(".btn-ghost").eq(i).removeAttr("hide");
+        }
     }
-    
+
+    // Show potential evidences given the remaining ghosts
+    if (countEvi >= 2) {
+        $(".btn-ghost").each(function (index) {
+            // Put a box-shadow for all button Evi that meets the remaining ghosts
+            if (!$(this).attr("hide")) {
+                $(".btn-evi").eq(listGhost[index].eviA).attr("pot", true);
+                $(".btn-evi").eq(listGhost[index].eviB).attr("pot", true);
+                $(".btn-evi").eq(listGhost[index].eviC).attr("pot", true);
+            }
+            
+        });
+        // Remove the box-shadow for evi button with state at 1
+        $(".btn-evi[state='1']").removeAttr("pot");
+    }
+
+    // If one ghost or zero remaining
+    var countGhost = $(".btn-ghost:not([hide])").length;
+    if (countGhost == 0) {
+        $(".btn-pas-ghost").removeAttr("hide");
+        $(".mainContent").attr("final", "2");
+    }
+    if (countGhost == 1) {
+        $(".mainContent").attr("final", "1");
+    }
 }
