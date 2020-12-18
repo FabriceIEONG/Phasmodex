@@ -3,6 +3,7 @@ var countEvi;
 var listEvi = [];
 var listGhost = [];
 var boolList = [];
+var curbtn, timeOut = 0, time = 0;
 
 $(document).ready(function() {  initPhasmoo(); });
 
@@ -51,13 +52,26 @@ function initPhasmoo() {
 /********** BUTTONS BEHAVIORS ************
 ******************************************/
 // Button Evidence
-$(".btn-evi").click(function() {
+/*$(".btn-evi").click(function() {
     switch ($(this).attr("state")) {
         case '0': $(this).attr("state", "1"); break;
         case '1': $(this).attr("state", "2"); break;
         case '2': $(this).attr("state", "0"); break;
     }
     updateList();
+});*/
+
+$('.btn-evi').on('mousedown', function(e) {
+    curbtn = $(this);
+    time = 0;
+    timeOut = setTimeout(function(){
+        switchState("2", "2", "0");
+        time++;
+    }, 250);
+}).bind('mouseup', function() {
+    if(time == 0)
+        switchState("1", "2", "0");
+    clearInterval(timeOut);
 });
 
 // Button Reset
@@ -129,6 +143,15 @@ function hideSidenote() {
     $(".sidenote").attr("hide", true);
     $(".mainContent").removeAttr("sidenote");
     $(".desc-ghost-cont").removeAttr("sidenote");
+}
+
+function switchState(cond1, cond2, cond3){
+    switch (curbtn.attr("state")) {
+        case '0': curbtn.attr("state", cond1); break;
+        case '1': curbtn.attr("state", cond2); break;
+        case '2': curbtn.attr("state", cond3); break;
+    }
+    updateList();
 }
 
 /***************** MAIN FUNCTIONS *******************
