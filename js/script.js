@@ -36,6 +36,16 @@ function initPhasmoo() {
 
     // Run the main function
     updateList();
+
+    // INIT Hammer.js (plugin)
+    var sidenoteOpen = new Hammer(document.querySelector(".mainContent"));
+    sidenoteOpen.on('swipeleft', function(ev) {
+        showSidenote();
+    });
+    var sidenoteClose = new Hammer(document.querySelector(".sidenote"));
+    sidenoteClose.on('swiperight', function(ev) {
+        hideSidenote();
+    });
 }
 
 /********** BUTTONS BEHAVIORS ************
@@ -51,10 +61,15 @@ $(".btn-evi").click(function() {
 });
 
 // Button Reset
-$(".btn-reset").click(function() {
+$(".mainContent .btn-reset").click(function() {
     $(".btn-evi").attr("state", "0");
     resetList();
     updateList();
+});
+
+// Button sidenote
+$(".btn-view[to='sidenote']").click(function () {
+    showSidenote();
 });
 
 function resetList() {
@@ -104,7 +119,19 @@ function hideDesc() {
     $(".btn-ghost").attr("state", "0");
 }
 
-/******************* FUNCTIONS **********************
+// Sidenotes show
+function showSidenote() {
+    $(".sidenote").removeAttr("hide");
+    $(".mainContent").attr("sidenote", true);
+    $(".desc-ghost-cont").attr("sidenote", true);
+}
+function hideSidenote() {
+    $(".sidenote").attr("hide", true);
+    $(".mainContent").removeAttr("sidenote");
+    $(".desc-ghost-cont").removeAttr("sidenote");
+}
+
+/***************** MAIN FUNCTIONS *******************
 *****************************************************/
 function updateList() {
     // Reset the list
@@ -170,3 +197,30 @@ function updateList() {
         $(".mainContent").attr("final", "1");
     }
 }
+
+/*************** SIDENOTE FUNCTIONS *****************
+*****************************************************/
+$(".btn-answer").click(function () {
+    $(this).siblings().removeAttr("toggle");
+    $(this).attr("toggle", true);
+});
+
+var todoItem = $(".todo-item");
+
+todoItem.click(function () {
+    var count = 10 - $(".todo-item[state='0']").length;
+    switch ($(this).attr("state")) {
+        case '0':
+            if (count <= 3) $(this).attr("state", "1");
+            break;
+        case '1': $(this).attr("state", "2"); break;
+        case '2': $(this).attr("state", "0"); break;
+    }
+});
+
+// Reset button for sidenote
+$(".sidenote .btn-reset").click(function () {
+    $("#ghostName").val('');
+    $(".btn-answer").removeAttr("toggle");
+    todoItem.attr("state", "0");
+});

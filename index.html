@@ -1,12 +1,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phasmoobile</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Phasmodex</title>
 
     <!-- CSS -->
     <link href="css/reset.css" rel="stylesheet">
-    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
 
@@ -25,62 +24,114 @@
 
 </head>
 <body>
-    <div class="container-fluid mainContent" final="0">
-        <div class="row top-cont">
-            <div class="btn-vide">Reset</div>
-            <div>
-                <div class="col-12 list-btn-evi">
-                    <div class="btn-evi" state="0" pot="0">EMF5</div>
-                    <div class="btn-evi" state="0" pot="0">Empreinte</div>
-                    <div class="btn-evi" state="0" pot="0">T°Glaciale</div>
+    <div class="container-fluid" final="0">
+        <section class="lg-mainContent">
+            <div class="row d-flex flex-wrap mainContent">
+                <div class="row top-cont">
+                    <div class="btn-vide">Reset</div>
+                    <div>
+                        <div class="col-12 list-btn-evi">
+                            <div class="btn-evi" state="0" pot="0">EMF5</div>
+                            <div class="btn-evi" state="0" pot="0">Empreinte</div>
+                            <div class="btn-evi" state="0" pot="0">T°Glaciale</div>
+                        </div>
+                        <div class="col-12 list-btn-evi">
+                            <div class="btn-evi" state="0" pot="0">Orbe</div>
+                            <div class="btn-evi" state="0" pot="0">Ecriture</div>
+                            <div class="btn-evi" state="0" pot="0">SpiritBox</div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center list-btn-nav">
+                        <div class="btn-view d-lg-none">À propos</div>
+                        <div class="btn-reset">Reset</div>
+                        <div class="btn-view d-lg-none" to="sidenote">Pense-bête</div>
+                    </div>
                 </div>
-                <div class="col-12 list-btn-evi">
-                    <div class="btn-evi" state="0" pot="0">Orbe</div>
-                    <div class="btn-evi" state="0" pot="0">Ecriture</div>
-                    <div class="btn-evi" state="0" pot="0">SpiritBox</div>
+                <div class="row">
+                    <div class="list-btn-ghost col-12">
+                        <div class='btn-pas-ghost' hide>Aucun fantôme correspondant</div>
+                        <div class='btn-ghost' state="0">Banshee</div>
+                        <div class='btn-ghost' state="0">Demon</div>
+                        <div class='btn-ghost' state="0">Jinn</div>
+                        <div class='btn-ghost' state="0">Cauchemar</div>
+                        <div class='btn-ghost' state="0">Oni</div>
+                        <div class='btn-ghost' state="0">Fantôme</div>
+                        <div class='btn-ghost' state="0">Poltergeist</div>
+                        <div class='btn-ghost' state="0">Revenant</div>
+                        <div class='btn-ghost' state="0">Ombre</div>
+                        <div class='btn-ghost' state="0">Esprit</div>
+                        <div class='btn-ghost' state="0">Spectre</div>
+                        <div class='btn-ghost' state="0">Yurei</div>
+                    </div>
                 </div>
+                
+                <footer class="align-self-end">
+                    <div>Optimisé pour mobile</div>
+                    <div>Phasmodex v0.3</div>
+                </footer>
+
             </div>
-            <div class="btn-reset">Reset</div>
-        </div>
-        <div class="row">
-            <div></div>
-            <div class="list-btn-ghost">
-                <div class='btn-pas-ghost' hide>Aucun fantôme correspondant</div>
-                <div class='btn-ghost' state="0">Banshee</div>
-                <div class='btn-ghost' state="0">Demon</div>
-                <div class='btn-ghost' state="0">Jinn</div>
-                <div class='btn-ghost' state="0">Cauchemar</div>
-                <div class='btn-ghost' state="0">Oni</div>
-                <div class='btn-ghost' state="0">Fantôme</div>
-                <div class='btn-ghost' state="0">Poltergeist</div>
-                <div class='btn-ghost' state="0">Revenant</div>
-                <div class='btn-ghost' state="0">Ombre</div>
-                <div class='btn-ghost' state="0">Esprit</div>
-                <div class='btn-ghost' state="0">Spectre</div>
-                <div class='btn-ghost' state="0">Yurei</div>
+
+            <section class="row justify-content-center">
+                <div class="col-9 col-lg-6 desc-ghost-cont">
+                    <div class="desc-title">Type d'entité</div>
+                    <div><strong>Force</strong> : <span class="desc-strength"></span></div>
+                    <div><strong>Faiblesse</strong> : <span class="desc-weak"></span></div>
+                    <div><strong>Preuves</strong> : <span class="desc-evi"></span></div>
+                </div>
+            </section>
+        </section>
+
+        <section class="sidenote col-lg-5" hide>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn-close d-lg-none btn-close-sidenote" aria-label="Close" onclick="hideSidenote()"></button>
+                        <h1>Pense-bête</h1>
+                        
+                        <input type="text" id="ghostName" class="sidenote-item" placeholder="Nom de l'entité" required="required">
+
+                        <div class="row sidenote-item">
+                            <div class="col d-flex">
+                                <div class="btn-answer">Répond à tout le monde</div>
+                                <div class="btn-answer">Répond aux personnes seules</div>
+                            </div>
+                        </div>
+                        
+                        <div class="todo-list sidenote-item">
+                            <div class="todo-item" state="0">Assister à un évènement paranormal</div>
+                            <div class="todo-item" state="0">Prendre une photo du fantôme</div>
+                            <div class="todo-item" state="0">Prendre une photo d'un évier sale</div>
+                            <div class="todo-item" state="0">Faire réagir le lecteur EMF</div>
+                            <div class="todo-item" state="0">Mesurer une température basse (10°C / 50°F)</div>
+                            <div class="todo-item" state="0">Faire réagir le détecteur de mouvement</div>
+                            <div class="todo-item" state="0">Utiliser un bâton d'encens sur l'entité</div>
+                            <div class="todo-item" state="0">Empêcher une chasse avec un crucifix</div>
+                            <div class="todo-item" state="0">Obtenir une trace de pas sur du sel</div>
+                        </div>
+
+                        <div class="sidenote-item">
+                            <div></div>
+                        </div>
+                        
+                        <div class="row sidenote-item">
+                            <div class="btn-reset">Reset</div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-        </div>
-        
-        <div class="row justify-content-center">
-            <div class="col-9 col-lg-6 desc-ghost-cont">
-                <div class="desc-title">Type de fantôme</div>
-                <div><strong>Force</strong> : <span class="desc-strength"></span></div>
-                <div><strong>Faiblesse</strong> : <span class="desc-weak"></span></div>
-                <div><strong>Preuves</strong> : <span class="desc-evi"></span></div>
-            </div>
-        </div>
+        </section>
+
     </div>
 
-    <footer>
-        <div>Optimisé pour mobile</div>
-        <div>Phasmoobile | coded by Sumashu</div>
-    </footer>
+    
 
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-   
+    <script src="js/hammer.min.js"></script>
+    <script src="js/easytimer.js"></script>
     <script src="js/classEvidence.js"></script>
     <script src="js/classGhost.js"></script>
     <script src="js/script.js"></script>
