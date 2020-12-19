@@ -61,12 +61,17 @@ $('.btn-evi').on('mousedown touchstart', function(e) {
     e.preventDefault();
     curBtnEvi = $(this);
     timeOutCheck = 0;
+    
+    //calls switchState between 0 and 2 if btn-evi held for 250ms.
     timeOut = setTimeout(function(){
         switchState("2", "2", "0");
         timeOutCheck++;
     }, 250);
 }).bind('mouseup touchend', function(e) {
+    //prevents default touchend behaviour for mobile browsers (can pop up a menu otherwise)
     e.preventDefault();
+    
+    //checks if the first switchState was called, and if not, calls a switchState between 0 and 1
     if(timeOutCheck == 0)
         switchState("1", "1", "0");
     clearInterval(timeOut);
