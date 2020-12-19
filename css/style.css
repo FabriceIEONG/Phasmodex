@@ -158,7 +158,8 @@ body {
     font-family: 'Reenie Beanie', cursive;
     font-weight: bold;
     border-bottom: 1px solid rgb(36, 36, 36);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
 }
 
 .sidenote {
@@ -175,13 +176,13 @@ body {
 .sidenote[hide] { left: 100%; }
 
 .sidenote-item {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 input, .todo-item {
     width: 100%;
     border: 0px;
-    padding: 8px;
+    padding: 5px 10px;
     border-radius: .25rem;
     transition: all 0.2s ease;
     background: rgb(167, 163, 146);
@@ -198,7 +199,7 @@ input:valid { background: rgb(54, 54, 54); }
 .btn-answer {
     background: rgb(167, 163, 146);
     color: rgb(214, 214, 214);
-    padding: 12px;
+    padding: 5px;
     width: 50%;
     cursor: pointer;
     text-align: center;
@@ -227,6 +228,8 @@ input:valid { background: rgb(54, 54, 54); }
 }
 .todo-item[state="1"] { background: rgb(54, 54, 54); }
 .todo-item[state="2"] { background: rgb(163, 163, 163); }
+
+.sidenote .btn-reset { margin: 0 12px; }
 
 /**** FOOTER *******/
 footer {

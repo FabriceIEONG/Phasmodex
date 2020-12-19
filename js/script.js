@@ -52,15 +52,6 @@ function initPhasmoo() {
 /********** BUTTONS BEHAVIORS ************
 ******************************************/
 // Button Evidence
-/*$(".btn-evi").click(function() {
-    switch ($(this).attr("state")) {
-        case '0': $(this).attr("state", "1"); break;
-        case '1': $(this).attr("state", "2"); break;
-        case '2': $(this).attr("state", "0"); break;
-    }
-    updateList();
-});*/
-
 $('.btn-evi').on('mousedown touchstart', function(e) {
     e.preventDefault();
     curBtnEvi = $(this);
