@@ -3,7 +3,7 @@ var countEvi;
 var listEvi = [];
 var listGhost = [];
 var boolList = [];
-var curbtn, timeOut = 0, time = 0;
+var curBtnEvi, timeOut = 0, timeOutCheck = 0;
 
 $(document).ready(function() {  initPhasmoo(); });
 
@@ -61,16 +61,18 @@ function initPhasmoo() {
     updateList();
 });*/
 
-$('.btn-evi').on('mousedown', function(e) {
-    curbtn = $(this);
-    time = 0;
+$('.btn-evi').on('mousedown touchstart', function(e) {
+    e.preventDefault();
+    curBtnEvi = $(this);
+    timeOutCheck = 0;
     timeOut = setTimeout(function(){
         switchState("2", "2", "0");
-        time++;
+        timeOutCheck++;
     }, 250);
-}).bind('mouseup', function() {
-    if(time == 0)
-        switchState("1", "2", "0");
+}).bind('mouseup touchend', function(e) {
+    e.preventDefault();
+    if(timeOutCheck == 0)
+        switchState("1", "1", "0");
     clearInterval(timeOut);
 });
 
@@ -145,15 +147,6 @@ function hideSidenote() {
     $(".desc-ghost-cont").removeAttr("sidenote");
 }
 
-function switchState(cond1, cond2, cond3){
-    switch (curbtn.attr("state")) {
-        case '0': curbtn.attr("state", cond1); break;
-        case '1': curbtn.attr("state", cond2); break;
-        case '2': curbtn.attr("state", cond3); break;
-    }
-    updateList();
-}
-
 /***************** MAIN FUNCTIONS *******************
 *****************************************************/
 function updateList() {
@@ -219,6 +212,15 @@ function updateList() {
     if (countGhost == 1) {
         $(".mainContent").attr("final", "1");
     }
+}
+
+//switches states values from 0 =to> firstSwitchState && from secondSwitchStateSrc =to> secondSwitchState
+function switchState(firstSwitchState, secondSwitchStateSrc, secondSwitchState){
+    switch (curBtnEvi.attr("state")) {
+        case "0":                   curBtnEvi.attr("state", firstSwitchState); break;
+        case secondSwitchStateSrc:  curBtnEvi.attr("state", secondSwitchState); break;
+    }
+    updateList();
 }
 
 /*************** SIDENOTE FUNCTIONS *****************
