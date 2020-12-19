@@ -29,7 +29,7 @@
         <section class="lg-mainContent">
             <div class="row d-flex flex-wrap mainContent">
                 <div class="row top-cont">
-                    <div class="btn-vide">Reset</div>
+                    <div class="btn-vide">.</div>
                     <div>
                         <div class="col-12 list-btn-evi">
                             <div class="btn-evi" state="0" pot="0">EMF5</div>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="d-flex justify-content-center list-btn-nav">
                         <div class="btn-view d-lg-none">À propos</div>
-                        <div class="btn-reset">Reset</div>
+                        <div class="btn-reset"><i class="fas fa-redo"></i></div>
                         <div class="btn-view d-lg-none" to="sidenote">Pense-bête</div>
                     </div>
                 </div>
@@ -83,40 +83,40 @@
             </section>
         </section>
 
-        <section class="sidenote col-lg-5" hide>
+        <section class="col-lg-5 sidenote" hide>
             <div class="container-fluid">
-                <div class="row">
+                <div class="row sidenote-cont">
                     <div class="col">
-                        <button type="button" class="btn-close d-lg-none btn-close-sidenote" aria-label="Close" onclick="hideSidenote()"></button>
-                        <h1>Pense-bête</h1>
+                        <div>
+                            <div class="d-flex d-lg-none sidenote-nav">
+                                <div><i class="fas fa-redo"></i></div>
+                                <div><i class="fas fa-times"></i></div>
+                            </div>
+
+                            <h1>Pense-bête</h1>
+                        </div>
                         
                         <input type="text" id="ghostName" class="sidenote-item" placeholder="Nom de l'entité" required="required">
 
-                        <div class="row sidenote-item">
-                            <div class="col d-flex">
-                                <div class="btn-answer">Répond à tout le monde</div>
-                                <div class="btn-answer">Répond aux personnes seules</div>
-                            </div>
+                        <div class="d-flex sidenote-item">
+                            <div class="btn-answer">Répond à tout le monde</div>
+                            <div class="btn-answer">Répond aux personnes seules</div>
                         </div>
                         
                         <div class="todo-list sidenote-item">
-                            <div class="todo-item" state="0">Assister à un évènement paranormal</div>
-                            <div class="todo-item" state="0">Prendre une photo du fantôme</div>
-                            <div class="todo-item" state="0">Prendre une photo d'un évier sale</div>
-                            <div class="todo-item" state="0">Faire réagir le lecteur EMF</div>
-                            <div class="todo-item" state="0">Mesurer une température basse (10°C / 50°F)</div>
-                            <div class="todo-item" state="0">Faire réagir le détecteur de mouvement</div>
-                            <div class="todo-item" state="0">Utiliser un bâton d'encens sur l'entité</div>
-                            <div class="todo-item" state="0">Empêcher une chasse avec un crucifix</div>
-                            <div class="todo-item" state="0">Obtenir une trace de pas sur du sel</div>
+                            <div class="todo-item" state="0">● Assister à un évènement paranormal</div>
+                            <div class="todo-item" state="0">● Prendre une photo du fantôme</div>
+                            <div class="todo-item" state="0">● Prendre une photo d'un évier sale</div>
+                            <div class="todo-item" state="0">● Faire réagir le lecteur EMF</div>
+                            <div class="todo-item" state="0">● Mesurer une température basse (10°C / 50°F)</div>
+                            <div class="todo-item" state="0">● Faire réagir le détecteur de mouvement</div>
+                            <div class="todo-item" state="0">● Utiliser un bâton d'encens sur l'entité</div>
+                            <div class="todo-item" state="0">● Empêcher une chasse avec un crucifix</div>
+                            <div class="todo-item" state="0">● Obtenir une trace de pas sur du sel</div>
                         </div>
 
                         <div class="sidenote-item">
                             <div></div>
-                        </div>
-                        
-                        <div class="row sidenote-item">
-                            <div class="btn-reset">Reset</div>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,11 @@ var curBtnEvi, timeOut = 0, timeOutCheck = 0;
 
 $(document).ready(function() {  initPhasmoo(); });
 
+// When the page is completely loaded
+$(window).on('load', function() {
+    // Pour l'instant rien du tout, mais pour l'implémentation d'un loading, si l'appli est lourde
+});
+
 /************ INITIALISATION *************
 ******************************************/
 function initPhasmoo() {
@@ -234,9 +239,13 @@ todoItem.click(function () {
     }
 });
 
-// Reset button for sidenote
-$(".sidenote .btn-reset").click(function () {
+// Reset and close buttons for sidenote
+$(".sidenote-nav").children().eq(0).click(function () {
     $("#ghostName").val('');
     $(".btn-answer").removeAttr("toggle");
     todoItem.attr("state", "0");
+});
+
+$(".sidenote-nav").children().eq(1).click(function() {
+    hideSidenote();
 });

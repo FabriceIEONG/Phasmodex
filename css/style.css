@@ -17,7 +17,7 @@ body {
 .mainContent[sidenote] { left: -50px; }
 
 .top-cont {
-    height: 55%;
+    height: 58%;
     margin: 10px 0;
     border-radius : .25rem;
     background: rgb(36, 36, 36);
@@ -67,12 +67,8 @@ body {
 .btn-evi[pot] { box-shadow: 0px 0px 8px 5px rgb(126, 36, 43); }
 
 .btn-reset, .btn-vide, .btn-view {
-    background: rgb(20, 20, 20);
     color: rgb(167, 163, 146);
-    font-size: .7em;
     cursor: pointer;
-    border-radius: .25rem;
-    width: 77px;
     padding: 5px;
     margin: 12px;
     display: flex;
@@ -87,7 +83,7 @@ body {
 }
 .btn-view {
     background: transparent;
-    width: 100px;
+    font-size: .7em;
     color: rgb(100, 100, 100);
     border-radius: 0;
     border-bottom: 1px solid rgb(100, 100, 100);
@@ -133,11 +129,11 @@ body {
     border-radius: .5rem;
     transition: all .2s ease;
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.3);
-    top: 0; left: 0;
+    top: 30px; left: 0;
     overflow: hidden;
 }
 
-.desc-ghost-cont-show { top: -270px; }
+.desc-ghost-cont-show { top: -240px; }
 .desc-ghost-cont[sidenote] { left: -50px; }
 
 .desc-title {
@@ -148,10 +144,10 @@ body {
 }
 
 /**** SIDE NOTE ******/
-.sidenote-height { height: 100%; }
-
-.btn-close-sidenote {
-    float: right;
+.sidenote-nav { float: right; }
+.sidenote-nav div {
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 .sidenote h1 {
@@ -175,9 +171,7 @@ body {
 }
 .sidenote[hide] { left: 100%; }
 
-.sidenote-item {
-    margin-bottom: 10px;
-}
+.sidenote-item { margin-bottom: 8px; }
 
 input, .todo-item {
     width: 100%;
@@ -199,7 +193,7 @@ input:valid { background: rgb(54, 54, 54); }
 .btn-answer {
     background: rgb(167, 163, 146);
     color: rgb(214, 214, 214);
-    padding: 5px;
+    padding: 10px;
     width: 50%;
     cursor: pointer;
     text-align: center;
@@ -223,13 +217,11 @@ input:valid { background: rgb(54, 54, 54); }
 
 .todo-item {
     font-size: .65em;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     cursor: pointer;
 }
 .todo-item[state="1"] { background: rgb(54, 54, 54); }
 .todo-item[state="2"] { background: rgb(163, 163, 163); }
-
-.sidenote .btn-reset { margin: 0 12px; }
 
 /**** FOOTER *******/
 footer {
