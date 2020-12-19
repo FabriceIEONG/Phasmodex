@@ -249,3 +249,19 @@ $(".sidenote-nav").children().eq(0).click(function () {
 $(".sidenote-nav").children().eq(1).click(function() {
     hideSidenote();
 });
+
+/*************** ABOUT FUNCTIONS *****************
+**************************************************/
+$(".btn-view[to='about']").click(function () {
+    showAbout();
+});
+$(".about-close").click(function () {
+    hideAbout();
+});
+
+function showAbout() {
+    $(".about-cont").removeAttr("hide");
+}
+function hideAbout() {
+    $(".about-cont").attr("hide", true);
+}

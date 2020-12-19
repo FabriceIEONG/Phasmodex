@@ -7,6 +7,12 @@ body {
     font-family: 'Syne Mono', monospace;
 }
 
+ul, ol, li {
+    margin: 0;
+    list-style-type: circle;
+}
+ul { padding-left: .8rem; }
+
 .mainContent {
     position: relative;
     transition: all 0.2s ease;
@@ -236,6 +242,44 @@ footer div:first-child {
     font-size: 1.4em;
 }
 
+/***** ABOUT *****/
+.about-cont {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    display: flex;
+    justify-content: center; align-items: center;
+    font-size: .7em;
+    transition: all .2s ease;
+    opacity: 1; z-index: 0;
+    background: rgb(0, 0, 0, .7);
+}
+.about-cont[hide] { opacity: 0; z-index: -1; }
+
+.about {
+    background: rgb(214, 214, 214);
+    margin: 20px; padding: 20px;
+    border-radius: .25rem;
+    max-width: 500px;
+}
+
+.about h2 {
+    border-bottom: 1px solid rgb(36, 36, 36);
+    font-size: 1.2em;
+}
+.about-h {
+    margin-top: 30px;
+}
+
+.about-close {
+    float: right;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.about ul {
+    margin-bottom: 30px;
+}
 
 /******* MEDIA QUERIES *******/
 @media (min-width: 576px) {
@@ -271,6 +315,11 @@ footer div:first-child {
         font-size: 1.3em;
         margin: 12px;
         padding: 8px;
+    }
+
+    .btn-view[to="sidenote"] {
+        opacity: 0;
+        z-index: -1;
     }
 
     .sidenote[hide] { left: 0; }
