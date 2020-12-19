@@ -150,7 +150,7 @@ ul { padding-left: .8rem; }
 }
 
 /**** SIDE NOTE ******/
-.sidenote-nav { float: right; }
+.sidenote-nav { float: right; margin-top: 4px; }
 .sidenote-nav div {
     cursor: pointer;
     margin-left: 10px;
