@@ -1,47 +1,57 @@
 // Variables
+var textJson; // Contains all texts, defined by a JSON file
 var countEvi;
 var listEvi = [];
 var listGhost = [];
 var boolList = [];
 var curBtnEvi, timeOut = 0, timeOutCheck = 0;
 
-$(document).ready(function() {  initPhasmoo(); });
+$(document).ready(function() {
+    setLang("FR"); // Set language from selected language (./lang/lang??.json)
+});
 
 // When the page is completely loaded
 $(window).on('load', function() {
     // Pour l'instant rien du tout, mais pour l'implémentation d'un loading, si l'appli est lourde
 });
 
+/************ MULTILANGUAGE FUNCTIONS *************
+***************************************************/
+function setLang(lang) {
+    $.getJSON( "./lang/lang"+lang+".json", function( data ) {
+        textJson = data;
+        initPhasmoo(); // Initialize all functions once json is parsed
+    });
+}
+
 /************ INITIALISATION *************
 ******************************************/
 function initPhasmoo() {
     // INIT Evidence List
-    listEvi[0] = new Evidence("EMF5");
-    listEvi[1] = new Evidence("Empreinte digitale");
-    listEvi[2] = new Evidence("Température glaciale");
-    listEvi[3] = new Evidence("Orbe fantômatique");
-    listEvi[4] = new Evidence("Ecriture fantômatique");
-    listEvi[5] = new Evidence("Spirit Box");
+    $(".btn-evi").each(function (i) {
+        listEvi[i] = new Evidence(textJson.evidence[i].name);
+        $(this).html(textJson.evidence[i].short);
+    });
 
     // INIT Ghost List
-    listGhost[0] = new Ghost("Banshee", 0, 1, 2, "Chasse toujours la même personne, jusqu'à sa mort.", "Les crucifix sont plus efficaces contre elle (5m).");
-    listGhost[1] = new Ghost("Demon", 2, 4, 5, "Plus aggressif que n'importe quelle autre entité.", "La planche Ouija ne draine pas la santé mentale.");
-    listGhost[2] = new Ghost("Jinn", 0, 3, 5, "Plus la cible est loin, plus il est rapide.", "Eteindre les lumières lui enlèvera cette capacité.");
-    listGhost[3] = new Ghost("Cauchemar", 2, 3, 5, "Attaquera plus fréquement dans le noir.", "Allumer les lumières réduira ses chances d'attaquer.");
-    listGhost[4] = new Ghost("Oni", 0, 4, 5, "Est plus actif en présence d'un groupe de personne.", "...donc plus facilement identifiable.");
-    listGhost[5] = new Ghost("Fantôme", 0, 2, 3, "Le regarder fait grandement baisser la santé mentale.", "Disparait brièvement s'il est pris en photo pendant une chasse.");
-    listGhost[6] = new Ghost("Poltergeist", 1, 3, 5, "Bouge activement les objets autour de lui.", "Plus vulnérable sans objet dans la pièce.");
-    listGhost[7] = new Ghost("Revenant", 0, 1, 4, "Très rapide en chasse.", "Se cacher le ralentira considérablement.");
-    listGhost[8] = new Ghost("Ombre", 0, 3, 4, "Réduit son activité en présence d'un groupe de personne.", "...donc moins enclin à attaquer face à un groupe.");
-    listGhost[9] = new Ghost("Esprit", 1, 4, 5, "Aucune.", "L'utilisation de bâton d'encens préviendra toute attaque pendant un certain temps.");
-    listGhost[10] = new Ghost("Spectre", 1, 2, 5, "Flotte, ne laisse pas d'empreinte au sol et traverse les murs.", "Réaction toxique au sel.");
-    listGhost[11] = new Ghost("Yurei", 2, 3, 4, "Réduit plus rapidement la santé mentale.", "L'utilisation de bâton d'encens la contraindra à rester aux alentours.");
+    $(".btn-ghost").each(function (i) {
+        listGhost[i] = new Ghost(
+            textJson.ghost[i].name,
+            textJson.ghost[i].listEvi[0],
+            textJson.ghost[i].listEvi[1],
+            textJson.ghost[i].listEvi[2],
+            textJson.ghost[i].strength,
+            textJson.ghost[i].weak
+        );
+        $(this).html(textJson.ghost[i].name);
+    });
+    $(".btn-pas-ghost").html(textJson.noGhost);
+
+    // INIT all texts
+    updateTxt();
 
     // INIT Boolean List to true => List of all potential Ghosts
     resetList();
-
-    // Run the main function
-    updateList();
 
     // INIT Hammer.js (plugin)
     var sidenoteOpen = new Hammer(document.querySelector(".mainContent"));
@@ -52,6 +62,30 @@ function initPhasmoo() {
     sidenoteClose.on('swiperight', function(ev) {
         hideSidenote();
     });
+    
+    // Run the main function
+    updateList();
+}
+
+function updateTxt() {
+    // Ghost description
+    $(".desc-ghost-cont .strength").html(textJson.description.strength);
+    $(".desc-ghost-cont .weak").html(textJson.description.weak);
+    $(".desc-ghost-cont .evid").html(textJson.description.evid);
+    // About
+    $(".btn-view[to='about']").html(textJson.about.btn);
+    $(".about-h").html(textJson.about.title +"<strong>Phasmodex v0.3</strong>");
+    $(".about p").html(textJson.about.desc);
+    // Sidenote
+    $(".btn-view[to='sidenote']").html(textJson.sidenote.title);
+    $(".sidenote h1").html(textJson.sidenote.title);
+    $("#ghostName").attr("placeholder", textJson.sidenote.placeholder);
+    $(".btn-answer").each(function (i) { $(this).html(textJson.sidenote.answer[i]); });
+    $(".todo-item").each(function (i) {
+        $(this).html("● " + textJson.quest[i]);
+    });
+    // Footer
+    $("footer div:first-child").html(textJson.footer);
 }
 
 /********** BUTTONS BEHAVIORS ************
