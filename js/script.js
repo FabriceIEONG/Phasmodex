@@ -7,7 +7,10 @@ var boolList = [];
 var curBtnEvi, timeOut = 0, timeOutCheck = 0;
 
 $(document).ready(function() {
-    setLang("FR"); // Set language from selected language (./lang/lang??.json)
+    // Select the language first
+    $(".btn-lang").click(function () {
+        setLang($(this).html()); // Set language from selected language (./lang/lang??.json)
+    });
 });
 
 // When the page is completely loaded
@@ -20,9 +23,13 @@ $(window).on('load', function() {
 function setLang(lang) {
     $.getJSON( "./lang/lang"+lang+".json", function( data ) {
         textJson = data;
+        selectLangHide();
         initPhasmoo(); // Initialize all functions once json is parsed
     });
 }
+var divSelectLang = $(".select-lang");
+function selectLangShow() { divSelectLang.removeAttr("hide"); }
+function selectLangHide() { divSelectLang.attr("hide", true); }
 
 /************ INITIALISATION *************
 ******************************************/
@@ -185,8 +192,7 @@ function hideSidenote() {
 /***************** MAIN FUNCTIONS *******************
 *****************************************************/
 function updateList() {
-    // Reset the list
-    resetList();
+    resetList(); // Reset the list
 
     // Refresh the ghost list : check the state of all Evidence buttons
     $(".btn-evi").each(function (index) {
@@ -291,16 +297,8 @@ $(".sidenote-nav").children().eq(1).click(function() {
 
 /*************** ABOUT FUNCTIONS *****************
 **************************************************/
-$(".btn-view[to='about']").click(function () {
-    showAbout();
-});
-$(".about-close").click(function () {
-    hideAbout();
-});
-
-function showAbout() {
-    $(".about-cont").removeAttr("hide");
-}
-function hideAbout() {
-    $(".about-cont").attr("hide", true);
-}
+var divAboutCont = $(".about-cont");
+$(".btn-view[to='about']").click(function () { showAbout(); });
+$(".about-close").click(function () { hideAbout(); });
+function showAbout() { divAboutCont.removeAttr("hide"); }
+function hideAbout() { divAboutCont.attr("hide", true); }
