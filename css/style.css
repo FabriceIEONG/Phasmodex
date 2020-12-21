@@ -251,7 +251,7 @@ footer div:first-child {
     display: flex;
     justify-content: center; align-items: center;
     font-size: .7em;
-    transition: all .2s ease;
+    /*transition: all .2s ease;*/
     opacity: 1; z-index: 0;
     background: rgb(0, 0, 0, .7);
 }
