@@ -7,15 +7,20 @@ var boolList = [];
 var curBtnEvi, timeOut = 0, timeOutCheck = 0;
 
 $(document).ready(function() {
-    // Select the language first
+    // Select language screen
     $(".btn-lang").click(function () {
         setLang($(this).html()); // Set language from selected language (./lang/lang??.json)
     });
-});
 
-// When the page is completely loaded
-$(window).on('load', function() {
-    // Pour l'instant rien du tout, mais pour l'implémentation d'un loading, si l'appli est lourde
+    // Patch note & version
+    $.getJSON( "version.json", function( data ) {
+        $(".footer-version").html(data.app + " v" + data.version);
+        $(".about-h strong").html(data.app + " v" + data.version);
+        var patchList = $(".about ul");
+        for (i in data.patchnote) {
+            patchList.append("<li>"+ data.patchnote[i] +"</li>");
+        }
+    });
 });
 
 /************ MULTILANGUAGE FUNCTIONS *************
@@ -81,7 +86,7 @@ function updateTxt() {
     $(".desc-ghost-cont .evid").html(textJson.description.evid);
     // About
     $(".btn-view[to='about']").html(textJson.about.btn);
-    $(".about-h").html(textJson.about.title +"<strong>Phasmodex v0.3</strong>");
+    $(".about-h span").html(textJson.about.title);
     $(".about p").html(textJson.about.desc);
     // Sidenote
     $(".btn-view[to='sidenote']").html(textJson.sidenote.title);
