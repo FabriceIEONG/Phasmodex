@@ -125,5 +125,6 @@
         "Empêcher une chasse avec un crucifix",
         "Obtenir une trace de pas sur du sel"
     ],
+    "difficulty": ["Amateur", "Intermédiaire", "Professionnel"],
     "footer" : "Optimisé pour mobile"
 }

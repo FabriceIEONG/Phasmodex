@@ -230,6 +230,29 @@ input:valid { background: rgb(54, 54, 54); }
 .todo-item[state="1"] { background: rgb(54, 54, 54); }
 .todo-item[state="2"] { background: rgb(163, 163, 163); }
 
+.chrono-config div {
+    cursor: pointer;
+    font-size: .7em;
+    background: rgb(189, 189, 189);
+    color: rgb(214, 214, 214);
+    padding: 5px 10px;
+    text-align: right;
+}
+.chrono-config-item:nth-child(1) { border-top-left-radius: .25rem; }
+.chrono-config-item:nth-child(3) { border-bottom-left-radius: .25rem; }
+.chrono {
+    background: rgb(167, 163, 146);
+    color: rgb(214, 214, 214);
+    padding: 10px;
+    border-top-right-radius: .25rem; border-bottom-right-radius: .25rem;
+    font-size: 2.5em;
+    width: 100%;
+    cursor: pointer;
+}
+.chrono-config div[toggle] { background: rgb(167, 163, 146); }
+.chrono-config[toggle] div[toggle] { background: rgb(54, 54, 54); }
+.chrono[toggle] { background: rgb(54, 54, 54); }
+
 /**** FOOTER *******/
 footer {
     font-size: .7em;
@@ -251,7 +274,6 @@ footer div:first-child {
     display: flex;
     justify-content: center; align-items: center;
     font-size: .7em;
-    /*transition: all .2s ease;*/
     opacity: 1; z-index: 0;
     background: rgb(0, 0, 0, .7);
 }

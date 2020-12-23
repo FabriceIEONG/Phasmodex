@@ -1,5 +1,5 @@
 // Variables
-var textJson; // Contains all texts, defined by a JSON file
+var textJson;
 var countEvi;
 var listEvi = [];
 var listGhost = [];
@@ -96,6 +96,9 @@ function updateTxt() {
     $(".todo-item").each(function (i) {
         $(this).html("● " + textJson.quest[i]);
     });
+    $(".chrono-config-item:nth-child(1)").html(textJson.difficulty[0]);
+    $(".chrono-config-item:nth-child(2)").html(textJson.difficulty[1]);
+    $(".chrono-config-item:nth-child(3)").html(textJson.difficulty[2]);
     // Footer
     $("footer div:first-child").html(textJson.footer);
 }
@@ -294,11 +297,68 @@ $(".sidenote-nav").children().eq(0).click(function () {
     $("#ghostName").val('');
     $(".btn-answer").removeAttr("toggle");
     todoItem.attr("state", "0");
+    resetTimer();
 });
 
 $(".sidenote-nav").children().eq(1).click(function() {
     hideSidenote();
 });
+
+// Chronometer
+var timer;
+var minutereset = 5; // Initiate at difficulty 1
+var minute = 5;
+var second = 0;
+
+$(".chrono-config div").click(function () {
+    div = $(this);
+    div.siblings().removeAttr("toggle");
+    div.attr("toggle", true);
+
+    switch (div.index()) {
+        case 0: minutereset = 5; break;
+        case 1: minutereset = 2; break;
+        case 2: minutereset = 0; break;
+    }
+    resetTimer();
+});
+
+$(".chrono").click(function () {
+    if (!$(this).attr("toggle")) {
+        startTimer();
+        $(this).attr("toggle", true);
+        $(".chrono-config").attr("toggle", true);
+    } else {
+        clearInterval(timer);
+        resetTimer();
+        $(this).removeAttr("toggle");
+        $(".chrono-config").removeAttr("toggle");
+    }
+});
+
+function startTimer() { timer = setInterval(timerImmune, 1000); }
+function resetTimer() {
+    minute = minutereset;
+    second = 0;
+    clearInterval(timer);
+    $(".chrono-config").removeAttr("toggle");
+    $(".chrono").removeAttr("toggle");
+    $(".chrono").html(minute + ":00");
+}
+
+function timerImmune() {
+    if (second == 0) {
+        if (minute > 0) {
+            second = 59;
+            minute--;
+        } else clearInterval(timer);
+    } else second--;
+
+    var text;
+    if (second >= 10) text = minute + ":" + second;
+    else text = minute + ":0" +second;
+    $(".chrono").html(text);
+}
 
 /*************** ABOUT FUNCTIONS *****************
 **************************************************/
