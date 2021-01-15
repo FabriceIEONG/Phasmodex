@@ -160,9 +160,10 @@ ul { padding-left: .8rem; }
 .sidenote h1 {
     font-family: 'Reenie Beanie', cursive;
     font-weight: bold;
-    border-bottom: 1px solid rgb(36, 36, 36);
+    border-bottom: 1px solid rgb(145, 142, 118);
     margin-bottom: 10px;
     font-size: 1.3em;
+    color: rgb(145, 142, 118);
 }
 
 .sidenote {
@@ -172,7 +173,7 @@ ul { padding-left: .8rem; }
     top: 0; left: 0;
     margin-left: 40px;
     padding: 10px 40px 10px 0px;
-    background: rgb(214, 214, 214);
+    background: rgb(36, 36, 36);
     transition: all 0.2s ease;
     border-radius: .25rem;
 }
