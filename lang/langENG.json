@@ -1,0 +1,130 @@
+{
+    "evidence": [
+        {
+            "name": "EMF-5",
+            "short" : "EMF-5"
+        },
+        {
+            "name": "Fingerprints",
+            "short": "Fingerprints"
+        },
+        {
+            "name": "Freezing Temperatures",
+            "short": "Freezing T°"
+        },
+        {
+            "name": "Ghost Orb",
+            "short": "Orb"
+        },
+        {
+            "name": "Ghost Writing",
+            "short": "Writing"
+        },
+        {
+            "name": "SpiritBox",
+            "short": "SpiritBox"
+        }
+    ],
+    "noGhost": "No ghost corresponding",
+    "ghost": [
+        {
+            "name": "Banshee",
+            "listEvi": [0, 1, 2],
+            "strength": "Always hunts the same person until the hunted dies.",
+            "weak": "Crucifix are more efficient against them (5m)."
+        },
+        {
+            "name": "Demon",
+            "listEvi": [2, 4, 5],
+            "strength": "Higly agressive, more than every other ghost.",
+            "weak": "Ouija board will not drain player's sanity."
+        },
+        {
+            "name": "Jinn",
+            "listEvi": [0, 3, 5],
+            "strength": "The further its target is, the faster its is.",
+            "weak": "Cut off the lights will disable this capacity."
+        },
+        {
+            "name": "Mare",
+            "listEvi": [2, 3, 5],
+            "strength": "More agressive in the dark, they'll try to cut off the lights.",
+            "weak": "Turning on le lights will limits its agression."
+        },{
+            "name": "Oni",
+            "listEvi": [0, 4, 5],
+            "strength": "More agressive when a lot of people are in the house.",
+            "weak": "Easily identificable."
+        },
+        {
+            "name": "Phantom",
+            "listEvi": [0, 2, 3],
+            "strength": "Quickly drains the sanity of those who view it.",
+            "weak": "Taking pictures of it during an hunt will make it disappear."
+        },
+        {
+            "name": "Poltergeist",
+            "listEvi": [1, 3, 5],
+            "strength": "Can manipulate and throw objects.",
+            "weak": "Weaker when no objects around."
+        },
+        {
+            "name": "Revenant",
+            "listEvi": [0, 1, 4],
+            "strength": "Is faster during an hunt if its target is in sight.",
+            "weak": "Hide from it will slow it."
+        },
+        {
+            "name": "Shade",
+            "listEvi": [0, 3, 4],
+            "strength": "Activty level very low when people are grouped",
+            "weak": "...so it will not face a group."
+        },
+        {
+            "name": "Spirit",
+            "listEvi": [1, 4, 5],
+            "strength": "None.",
+            "weak": "Smudges sticks prevent its attacks."
+        },
+        {
+            "name": "Wraith",
+            "listEvi": [1, 2, 5],
+            "strength": "Can fly, so doesn't leave any footprints on the floor. Can go through walls.",
+            "weak": "Salt is toxic to it."
+        },
+        {
+            "name": "Yurei",
+            "listEvi": [2, 3, 4],
+            "strength": "Increase the passive drain of player's sanity.",
+            "weak": "Using smudges sticks will prevent the Yurei from wandering from its room."
+        }
+    ],
+    "description": {
+        "strength": "Strength",
+        "weak": "Weakness",
+        "evid": "Evidences"
+    },
+    "about": {
+        "btn": "About",
+        "title": "About ",
+        "desc": "I don't know what to put here, i'll see that later %D"
+    },
+    "sidenote": {
+        "title": "Side Note",
+        "placeholder": "Enter a name",
+        "answer": ["Respond to everyone", "Respond to people who are alone"]
+    },
+    "quest": [
+        "Witness a ghost event",
+        "Take a picture of the ghost",
+        "Take a picture of dirty water in a sink",
+        "Find evidence with EMF Reader",
+        "Mesure a very low temperature (10°C / 50°F)",
+        "Detect a ghost with a motion sensor",
+        "Cleanse the ghost room with smudges sticks",
+        "Prevent an hunt with a crucifix",
+        "Get footprints on salt"
+    ],
+    "difficulty": ["Amateur", "Intermediate", "Professional"],
+    "footer" : "Mobile friendly"
+}

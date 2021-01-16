@@ -157,6 +157,10 @@ ul { padding-left: .8rem; }
     margin-left: 10px;
 }
 
+.sidenote-nav .btn-reset-sn {
+    color: rgb(167, 163, 146);
+}
+
 .sidenote h1 {
     font-family: 'Reenie Beanie', cursive;
     font-weight: bold;
@@ -178,6 +182,10 @@ ul { padding-left: .8rem; }
     border-radius: .25rem;
 }
 .sidenote[hide] { left: 100%; }
+
+/* .btn-reset-sn{
+    color: rgb(167, 163, 146);
+} */
 
 .sidenote-item { margin-bottom: 8px; }
 
