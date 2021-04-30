@@ -316,9 +316,18 @@ $(".chrono-config div").click(function () {
     div.attr("toggle", true);
 
     switch (div.index()) {
-        case 0: minutereset = 5; break;
-        case 1: minutereset = 2; break;
-        case 2: minutereset = 0; break;
+        case 0: minutereset = 5; 
+        $(".btn-answer").removeClass("sidenote-disable");
+        $(".btn-answer").siblings().removeAttr("toggle");
+        break;
+        case 1: minutereset = 2; 
+        $(".btn-answer").removeClass("sidenote-disable");
+        $(".btn-answer").siblings().removeAttr("toggle");
+        break;
+        case 2: minutereset = 0; 
+        $(".btn-answer").addClass("sidenote-disable");
+        $(".btn-answer").siblings().removeAttr("toggle");
+        break;
     }
     resetTimer();
 });

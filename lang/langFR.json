@@ -117,13 +117,15 @@
     "quest": [
         "Assister à un évènement paranormal",
         "Prendre une photo du fantôme",
-        "Prendre une photo d'un évier sale",
         "Faire réagir le lecteur EMF",
-        "Mesurer une température basse (10°C / 50°F)",
         "Faire réagir le détecteur de mouvement",
         "Utiliser un bâton d'encens sur l'entité",
         "Empêcher une chasse avec un crucifix",
-        "Obtenir une trace de pas sur du sel"
+        "Obtenir une trace de pas sur du sel",
+        "Repousser un fantôme avec de l'encens pendant qu'il poursuit quelqu'un",
+        "Faire en sorte que le fantôme éteigne une bougie",
+        "Échapper au fantôme durant une chasse",
+        "Avoir la santé mentale moyenne de l'équipe en dessous de 25%"
     ],
     "difficulty": ["Amateur", "Intermédiaire", "Professionnel"],
     "footer" : "Optimisé pour mobile"

@@ -117,13 +117,15 @@
     "quest": [
         "Witness a ghost event",
         "Take a picture of the ghost",
-        "Take a picture of dirty water in a sink",
         "Find evidence with EMF Reader",
-        "Mesure a very low temperature (10°C / 50°F)",
         "Detect a ghost with a motion sensor",
         "Cleanse the ghost room with smudges sticks",
         "Prevent an hunt with a crucifix",
-        "Get footprints on salt"
+        "Get footprints on salt",
+        "Repel the ghost with a smudge stick while it's chasing someone",
+        "Get the ghost to blow out a candle",
+        "Escape the ghost during a hunt",
+        "Get an average sanity below 25%"
     ],
     "difficulty": ["Amateur", "Intermediate", "Professional"],
     "footer" : "Mobile friendly"
