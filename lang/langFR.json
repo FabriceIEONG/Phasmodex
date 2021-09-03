@@ -23,80 +23,102 @@
         {
             "name": "SpiritBox",
             "short": "SpiritBox"
+        },
+        {
+            "name": "Projecteur DOTS",
+            "short": "DOTS"
         }
     ],
     "noGhost": "Aucun fantôme correspondant",
     "ghost": [
         {
             "name": "Banshee",
-            "listEvi": [0, 1, 2],
+            "listEvi": [3, 1, 6],
             "strength": "Chasse toujours la même personne, jusqu'à sa mort.",
             "weak": "Les crucifix sont plus efficaces contre elle (5m)."
         },
         {
             "name": "Démon",
-            "listEvi": [2, 4, 5],
+            "listEvi": [2, 4, 1],
             "strength": "Plus aggressif que n'importe quelle autre entité.",
             "weak": "La planche Ouija ne draine pas la santé mentale."
         },
         {
             "name": "Djinn",
-            "listEvi": [0, 3, 5],
+            "listEvi": [0, 1, 2],
             "strength": "Plus la cible est loin, plus il est rapide.",
             "weak": "Éteindre les lumières lui enlèvera cette capacité."
         },
         {
             "name": "Cauchemar",
-            "listEvi": [2, 3, 5],
+            "listEvi": [3, 4, 5],
             "strength": "Attaquera plus fréquement dans le noir.",
             "weak": "Allumer les lumières réduira ses chances d'attaquer."
         },{
             "name": "Oni",
-            "listEvi": [0, 4, 5],
+            "listEvi": [0, 2, 6],
             "strength": "Est plus actif en présence d'un groupe de personne.",
             "weak": "...donc plus facilement identifiable."
         },
         {
             "name": "Fantôme",
-            "listEvi": [0, 2, 3],
+            "listEvi": [1, 5, 6],
             "strength": "Le regarder fait grandement baisser la santé mentale.",
             "weak": "Disparait brièvement s'il est pris en photo pendant une chasse."
         },
         {
             "name": "Poltergeist",
-            "listEvi": [1, 3, 5],
+            "listEvi": [1, 4, 5],
             "strength": "Bouge activement les objets autour de lui.",
             "weak": "Plus vulnérable sans objet dans la pièce."
         },
         {
             "name": "Revenant",
-            "listEvi": [0, 1, 4],
+            "listEvi": [2, 3, 4],
             "strength": "Très rapide en chasse.",
             "weak": "Se cacher le ralentira considérablement."
         },
         {
             "name": "Ombre",
-            "listEvi": [0, 3, 4],
+            "listEvi": [0, 2, 4],
             "strength": "Réduit son activité en présence d'un groupe de personne",
             "weak": "...donc moins enclin à attaquer face à un groupe."
         },
         {
             "name": "Esprit",
-            "listEvi": [1, 4, 5],
+            "listEvi": [0, 4, 5],
             "strength": "Aucune.",
             "weak": "L'utilisation de bâton d'encens préviendra toute attaque pendant un certain temps."
         },
         {
             "name": "Spectre",
-            "listEvi": [1, 2, 5],
+            "listEvi": [0, 5, 6],
             "strength": "Flotte, ne laisse pas d'empreinte au sol et traverse les murs.",
             "weak": "Réaction toxique au sel."
         },
         {
             "name": "Yurei",
-            "listEvi": [2, 3, 4],
+            "listEvi": [2, 3, 6],
             "strength": "Réduit plus rapidement la santé mentale.",
             "weak": "L'utilisation de bâton d'encens la contraindra à rester aux alentours."
+        },
+        {
+            "name": "Hantu",
+            "listEvi": [1, 3, 4],
+            "strength": "Il se déplace plus rapidement quand la température est basse.",
+            "weak": "Bouge plus lentement quand il fait chaud."
+        },
+        {
+            "name": "Goryo",
+            "listEvi": [0, 1, 6],
+            "strength": "Un Goryo se montrera plus facilement à la caméra s'il est seul.",
+            "weak": "On le voit rarement loin de son lieu de mort."
+        },
+        {
+            "name": "Myling",
+            "listEvi": [0, 1, 2],
+            "strength": "Pendant une chasse, un Myling ne fera aucun son.",
+            "weak": "Un Myling fera beaucoup de sons paranormaux."
         }
     ],
     "description": {
@@ -107,7 +129,7 @@
     "about": {
         "btn": "À propos",
         "title": "À propos de ",
-        "desc": "J'sais pas quoi écrire, on verra plus tard %D"
+        "desc": "Mise à jour du site suite à la mise à jour 3.0"
     },
     "sidenote": {
         "title": "Pense-bête",
