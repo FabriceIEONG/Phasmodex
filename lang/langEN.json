@@ -23,80 +23,102 @@
         {
             "name": "SpiritBox",
             "short": "SpiritBox"
+        },
+        {
+            "name": "DOTS projector",
+            "short": "DOTS"
         }
     ],
     "noGhost": "No ghost corresponding",
     "ghost": [
         {
             "name": "Banshee",
-            "listEvi": [0, 1, 2],
+            "listEvi": [3, 1, 6],
             "strength": "Always hunts the same person until the hunted dies.",
             "weak": "Crucifix are more efficient against them (5m)."
         },
         {
             "name": "Demon",
-            "listEvi": [2, 4, 5],
+            "listEvi": [2, 4, 1],
             "strength": "Higly agressive, more than every other ghost.",
             "weak": "Ouija board will not drain player's sanity."
         },
         {
             "name": "Jinn",
-            "listEvi": [0, 3, 5],
+            "listEvi": [0, 1, 2],
             "strength": "The further its target is, the faster its is.",
             "weak": "Cut off the lights will disable this capacity."
         },
         {
             "name": "Mare",
-            "listEvi": [2, 3, 5],
+            "listEvi": [3, 4, 5],
             "strength": "More agressive in the dark, they'll try to cut off the lights.",
             "weak": "Turning on le lights will limits its agression."
         },{
             "name": "Oni",
-            "listEvi": [0, 4, 5],
+            "listEvi": [0, 2, 6],
             "strength": "More agressive when a lot of people are in the house.",
             "weak": "Easily identificable."
         },
         {
             "name": "Phantom",
-            "listEvi": [0, 2, 3],
+            "listEvi": [1, 5, 6],
             "strength": "Quickly drains the sanity of those who view it.",
             "weak": "Taking pictures of it during an hunt will make it disappear."
         },
         {
             "name": "Poltergeist",
-            "listEvi": [1, 3, 5],
+            "listEvi": [1, 4, 5],
             "strength": "Can manipulate and throw objects.",
             "weak": "Weaker when no objects around."
         },
         {
             "name": "Revenant",
-            "listEvi": [0, 1, 4],
+            "listEvi": [2, 3, 4],
             "strength": "Is faster during an hunt if its target is in sight.",
             "weak": "Hide from it will slow it."
         },
         {
             "name": "Shade",
-            "listEvi": [0, 3, 4],
+            "listEvi": [0, 2, 4],
             "strength": "Activty level very low when people are grouped",
             "weak": "...so it will not face a group."
         },
         {
             "name": "Spirit",
-            "listEvi": [1, 4, 5],
+            "listEvi": [0, 4, 5],
             "strength": "None.",
             "weak": "Smudges sticks prevent its attacks."
         },
         {
             "name": "Wraith",
-            "listEvi": [1, 2, 5],
+            "listEvi": [0, 5, 6],
             "strength": "Can fly, so doesn't leave any footprints on the floor. Can go through walls.",
             "weak": "Salt is toxic to it."
         },
         {
             "name": "Yurei",
-            "listEvi": [2, 3, 4],
+            "listEvi": [2, 3, 6],
             "strength": "Increase the passive drain of player's sanity.",
             "weak": "Using smudges sticks will prevent the Yurei from wandering from its room."
+        },
+        {
+            "name": "Hantu",
+            "listEvi": [1, 3, 4],
+            "strength": "Move faster in colder areas.",
+            "weak": "Warmer areas make him move slower."
+        },
+        {
+            "name": "Goryo",
+            "listEvi": [0, 1, 6],
+            "strength": "A Goryo will be more visible on camera when he's alone.",
+            "weak": "Mostly around his death place."
+        },
+        {
+            "name": "Myling",
+            "listEvi": [0, 1, 4],
+            "strength": "A Myling is known to be quieter when hunting.",
+            "weak": "Mylings more frequently make paranormal sounds."
         }
     ],
     "description": {
@@ -107,7 +129,7 @@
     "about": {
         "btn": "About",
         "title": "About ",
-        "desc": "I don't know what to put here, i'll see that later %D"
+        "desc": "Update of the website after the 3.0 update"
     },
     "sidenote": {
         "title": "Side Note",

@@ -334,10 +334,20 @@ footer div:first-child {
 }
 
 /******* MEDIA QUERIES *******/
+@media (min-width: 320px) {
+    .btn-evi {
+        width: 80px;
+        height: 70px;
+        font-size: 1.1em;
+        margin: 10px;
+        padding: 8px;
+    }
+}
+
 @media (min-width: 576px) {
     .btn-evi {
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 80px;
         font-size: 1.2em;
         margin: 10px;
         padding: 8px;
@@ -346,8 +356,8 @@ footer div:first-child {
 
 @media (min-width: 768px) {
     .btn-evi {
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 80px;
         font-size: 1.2em;
         margin: 10px;
         padding: 8px;
@@ -362,7 +372,7 @@ footer div:first-child {
         display: inherit;
     }
     .btn-evi {
-        width: 80px;
+        width: 90px;
         height: 80px;
         font-size: 1.3em;
         margin: 12px;

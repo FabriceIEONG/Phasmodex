@@ -116,7 +116,7 @@
         },
         {
             "name": "Myling",
-            "listEvi": [0, 1, 2],
+            "listEvi": [0, 1, 4],
             "strength": "Pendant une chasse, un Myling ne fera aucun son.",
             "weak": "Un Myling fera beaucoup de sons paranormaux."
         }
