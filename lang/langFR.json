@@ -101,10 +101,15 @@
             "listEvi": [2, 3, 6],
             "strength": "Réduit plus rapidement la santé mentale.",
             "weak": "L'utilisation de bâton d'encens la contraindra à rester aux alentours."
+        },{
+            "name": "Yokai",
+            "listEvi": [3, 5, 6],
+            "strength": "Parler en étant proche d'un Yokai l'énervera et il attaquera plus souvent.",
+            "weak": "Pendant qu'il chasse, un Yokai ne peut entendre que les voix proches de lui."
         },
         {
             "name": "Hantu",
-            "listEvi": [1, 3, 4],
+            "listEvi": [1, 3, 2],
             "strength": "Il se déplace plus rapidement quand la température est basse.",
             "weak": "Bouge plus lentement quand il fait chaud."
         },
